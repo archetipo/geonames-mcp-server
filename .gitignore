@@ -18,6 +18,6 @@ mdbdata
 service-app
 data_src
 data/*.txt
-countries.db
+src/countries.db
 poetry.lock
 .env
