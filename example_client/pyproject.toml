@@ -1,0 +1,25 @@
+[project]
+name = "mcp-client"
+version = "0.1.0"
+description = "Mcp client with ollama"
+authors = [
+    {name = "Alessio Gerace",email = "alessio.gerace@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = "<4.0,>=3.10"
+dependencies = [
+    "ollama>=0.6.0",
+    "fastmcp>=2.12.4",
+    "langchain_community>=0.3.0",
+    "langchain-mcp-adapters>=0.1.11",
+    "langchain-ollama>=0.3.10",
+    "langgraph>=0.6.8"
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

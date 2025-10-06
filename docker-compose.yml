@@ -1,0 +1,15 @@
+services:
+  geonames_mcp_server:
+    tty: true
+    build:
+      args:
+        ENVIRONMENT: production
+    container_name: geonames-mcp-server
+    restart: always
+    ports:
+      - "8160:8000"
+    volumes:
+      - .:/app
+    environment:
+      - GEONAMES_USERNAME=demo
+

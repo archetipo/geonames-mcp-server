@@ -1,0 +1,8 @@
+services:
+  geonames_mcp_server-test:
+    tty: true
+    build:
+      args:
+        ENVIRONMENT: test
+    container_name: geonames-mcp-test
+    command: ["pytest"]
