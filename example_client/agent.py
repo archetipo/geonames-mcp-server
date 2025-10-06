@@ -40,34 +40,35 @@ async def main():
     }
 
     msgs = [sysmsg, {"role": "user", "content": "give me city name of  E3Y on Canada"}]
+    print("👤: give me city name of  E3Y on Canada")
     response = await agent.ainvoke({"messages": msgs})
     for res in response["messages"]:
         if isinstance(res, AIMessage):
-            print(res.content)
-    print()
-    print()
-
+            if res.content:
+                print(f"🤖: {res.content}")
+    print("-"*50)
     msgs = [
         sysmsg,
         {"role": "user", "content": "Cerca la label indirizzo per strada dele cacce 91 con cap 10135"},
     ]
+    print("👤: Cerca la label indirizzo per strada dele cacce 91 con cap 10135")
     response = await agent.ainvoke({"messages": msgs})
     for res in response["messages"]:
         if isinstance(res, AIMessage):
-            print(res.content)
-    print()
-    print()
-
+            if res.content:
+                print(f"🤖: {res.content}")
+    print("-"*50)
     msgs = [
         sysmsg,
         {"role": "user", "content": "Cerca il codice postale di Alba in Italia"},
     ]
+    print("👤: Cerca il codice postale di Alba in Italia, rispondi in inglese")
     response = await agent.ainvoke({"messages": msgs})
     for res in response["messages"]:
         if isinstance(res, AIMessage):
-            print(res.content)
-    print()
-    print()
+            if res.content:
+                print(f"🤖: {res.content}")
+    print("-" * 50)
 
     msgs = [
         sysmsg,
@@ -76,12 +77,13 @@ async def main():
             "content": "Cerca il codice postale di tute le citta' che iniziano con Alba in Italia",
         },
     ]
+    print("👤: Cerca il codice postale di tute le citta' che iniziano con Alba in Italia")
     response = await agent.ainvoke({"messages": msgs})
     for res in response["messages"]:
         if isinstance(res, AIMessage):
-            print()
-            print(res.content)
-
+            if res.content:
+                print(f"🤖: {res.content}")
+    print("-" * 50)
 
 if __name__ == "__main__":
     asyncio.run(main())
