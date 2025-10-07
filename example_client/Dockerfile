@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM python:3.13-slim AS builder
 
 # Evitiamo buffering, impostiamo ambiente
 ENV PYTHONUNBUFFERED=1 \
@@ -17,5 +17,16 @@ RUN pip install poetry
 RUN poetry install --no-root --only main
 
 # Copia il resto del codice
+FROM builder AS agent
+
+ARG TZ=Europe/Rome
 
 CMD ["python", "agent.py"]
+
+# Copia il resto del codice
+FROM builder AS gemini
+
+ARG TZ=Europe/Rome
+
+CMD ["python", "agent_gemini.py"]
+

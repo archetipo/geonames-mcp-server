@@ -1,10 +1,11 @@
 services:
   client:
-    build: .
+    build:
+      target: agent
     container_name: mcp_client
     volumes:
       - .:/app
     environment:
-      OLLAMA_MODEL_NAME: "qwen3:8b"
-      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
-      MCP_SERVER_URL: "http://host.docker.internal:8160/mcp"
+      - OLLAMA_MODEL_NAME=${OLLAMA_MODEL_NAME}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - MCP_SERVER_URL=${MCP_SERVER_URL}

@@ -28,17 +28,15 @@ You can override them in your shell or via Docker Compose environment.
 ---
 
 ## 🐳 Docker / Docker Compose Usage
-
-Your `docker-compose.yml` should contain a service definition like:
-
-```yaml
-services:
-  client:
-    build: .
-    container_name: mcp_client
-    volumes:
-      - .:/app
-    environment:
-      OLLAMA_MODEL_NAME: "qwen3:8b"
-      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
-      MCP_SERVER_URL: "http://host.docker.internal:8160/mcp"
+1. edit .env file with your data
+   ```bash
+    cp env.examlpe .env
+   ``
+2. Run standanlone client
+      ```bash
+    docker compose up
+   ```
+3. Run Gemini Api client
+      ```bash
+    docker compose up
+   ```

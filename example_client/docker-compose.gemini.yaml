@@ -1,0 +1,13 @@
+services:
+  gemini_agent:
+    build:
+      target: gemini
+    container_name: gemini_agent
+    environment:
+      # Questa riga cerca il valore nel file .env o nelle variabili
+      # di ambiente del tuo terminale.
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - MCP_SERVER_URL=${MCP_SERVER_URL}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
